@@ -453,16 +453,6 @@ footer{background:var(--wine-3);color:#cdb59a;text-align:center;padding:26px 20p
         <p class="sub"><span class="accent">Dream Valley, 6th Floor</span><br>Mirpur New Market, Mirpur-1, Dhaka</p>
       </article>
     </div>
-    <div class="cal-actions reveal">
-      <a class="btn btn-line" id="gcal" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M12 13v5M9.5 15.5h5"/></svg>
-        Add to Google Calendar
-      </a>
-      <button class="btn btn-line" id="ics" type="button">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
-        Download .ics
-      </button>
-    </div>
   </div>
 </section>
 
@@ -478,7 +468,7 @@ footer{background:var(--wine-3);color:#cdb59a;text-align:center;padding:26px 20p
       Mirpur New Market, Mirpur-1, Dhaka, Bangladesh
     </p></div>
     <div class="venue-actions reveal">
-      <a class="btn btn-gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Zamzam+Convention+Hall+Mirpur+New+Market+Mirpur+1+Dhaka">
+      <a class="btn btn-gold" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Zam+Zam+Convention+Hall+-+Mirpur+1&amp;query_place_id=ChIJE5pi6crBVTcR3zQQHK9OhiQ">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
         Open in Google Maps
       </a>
@@ -948,27 +938,6 @@ footer{background:var(--wine-3);color:#cdb59a;text-align:center;padding:26px 20p
     setTimeout(tick, 1000 - (Date.now()%1000));
   }
   tick();
-
-  /* =========================================================
-     3. CALENDAR — 6:30 PM–10:30 PM Dhaka = 12:30–16:30 UTC
-     ========================================================= */
-  var title = 'Wedding Reception — Mimma & Afif';
-  var place = 'Zamzam Convention Hall, Dream Valley, 6th Floor, Mirpur New Market, Mirpur-1, Dhaka';
-  var details = 'Wedding Reception of Mumtahina Fatin Mimma & Mahin Montasir Afif. 6:30 PM onwards.';
-  document.getElementById('gcal').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'+
-    '&text='+encodeURIComponent(title)+'&dates=20261225T123000Z/20261225T163000Z'+
-    '&details='+encodeURIComponent(details)+'&location='+encodeURIComponent(place);
-  document.getElementById('ics').addEventListener('click', function(){
-    var ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Mimma & Afif//Reception//EN','BEGIN:VEVENT',
-      'UID:mimma-afif-reception-20261225@invite','DTSTAMP:20261121T000000Z',
-      'DTSTART:20261225T123000Z','DTEND:20261225T163000Z',
-      'SUMMARY:'+title,'LOCATION:'+place.replace(/,/g,'\\,'),'DESCRIPTION:'+details.replace(/,/g,'\\,'),
-      'END:VEVENT','END:VCALENDAR'].join('\r\n');
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
-    a.download = 'Mimma-Afif-Reception.ics';
-    document.body.appendChild(a); a.click(); a.remove();
-  });
 
   /* =========================================================
      4. NAV + SCROLL REVEAL
